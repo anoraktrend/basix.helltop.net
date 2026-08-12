@@ -18,9 +18,10 @@ these extension repositories).
 - **Declarative templates**: a package is mostly variables (`pkg_name`, `version`,
   `revision`, `build_style`, `dist_files`, `checksum`, `depends`, …) plus optional hook
   functions. The build choreography lives in bpm, not the recipe.
-- **Reproducibility-first**: mandatory BLAKE3 checksums, a `version`/`revision` pair on
-  every package, and per-build use-flag resolution that invalidates cached binaries when
-  flags change.
+- **Verification-first**: mandatory BLAKE3 checksums verify downloaded sources — `b3sum`
+  is used as a fast hashing utility, not for reproducibility — plus a
+  `version`/`revision` pair on every package and per-build use-flag resolution that
+  invalidates cached binaries when flags change.
 - **No subpackages**: one template = one binary package. Dependencies are plain
   whitespace-separated lists of hard requirements (`depends` runtime,
   `make_depends` build-time headers, `host_make_depends` build tools).
@@ -28,7 +29,7 @@ these extension repositories).
   extension repositories for extended functionality. Repositories are listed in
   `/etc/bpm/repos.conf`, highest priority first; the first repository providing a
   template wins, so any extension repository can shadow a core package (this is how
-  FrankenBasix works).
+  the FrankenBasix and FrankenUTB overlays work).
 - About 124 packages upstream (b3sum, baselayout, baseinit, bash, binutils, busybox,
   cryptsetup, curl, gmp, linux, musl, systemd, util-linux, …), licensed BSD-3-Clause,
   with no README or CI.
@@ -36,5 +37,4 @@ these extension repositories).
 ## Output artifacts
 
 Builds produce `bpm` archives (tar + `gz`/`xz`/`zst`/`bz2`), tracked in
-`/var/db/bpm/installed/`. basix shares no package format with iglunix/frankensrc — see
-the workspace's `REPOSITORY_COMPARISON.md` for the full three-way comparison.
+`/var/db/bpm/installed/`. basix shares no package format with iglunix/frankensrc.

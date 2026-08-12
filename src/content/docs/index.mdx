@@ -1,9 +1,9 @@
 ---
-title: Basix, bpm & FrankenBasix
-description: Documentation for the basix Linux distribution, its bpm package manager, and the FrankenBasix spin maintained in this workspace.
+title: Basix, bpm & Franken*
+description: Documentation for the basix Linux distribution, its bpm package manager, and the FrankenBasix and FrankenUTB extension repositories maintained in this workspace.
 template: splash
 hero:
-  tagline: Documentation for the basix Linux distribution, its `bpm` package manager, and the FrankenBasix spin.
+  tagline: Documentation for the basix Linux distribution, its `bpm` package manager, and the FrankenBasix and FrankenUTB extension repositories.
   actions:
     - text: Getting Started
       link: /guides/getting-started/
@@ -16,17 +16,19 @@ hero:
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-Three things share the name "basix" — the distro, its package manager, and a personal spin
-on its package repository:
+Four things share the name "basix" — the distro, its package manager, and the personal
+spins on its package repository:
 
 | Thing | What it is | Upstream |
 |---|---|---|
 | **basix** | A small musl-based Linux distro ("basix linux") | [kkrruumm/basix-packages](https://github.com/kkrruumm/basix-packages) (package repo) |
 | **bpm** | basix's package manager and build system | [kkrruumm/bpm](https://github.com/kkrruumm/bpm) |
 | **FrankenBasix** | A community extension repository for basix ("a bunch of templates to make using basix nicer for me and other users") | [anoraktrend/frankenbasix](https://github.com/anoraktrend/frankenbasix) |
+| **FrankenUTB** | Its untested sibling: "a bunch of untested basix package templates that others might like" (systemd replacements + Wayland stack, nothing built or verified) | [anoraktrend/frankenutb](https://github.com/anoraktrend/frankenutb) |
 
 Local mirrors of the upstream repos live next to this workspace (`basix-packages/`,
-read-only reference, and `frankenbasix/`, active work).
+read-only reference, `frankenbasix/`, active work, and `frankenutb/`, untested
+sibling).
 
 ## Downloads
 
@@ -48,19 +50,19 @@ lists the packages installed in the rootfs.
 ```
                 kkrruumm/bpm (the engine, MIT)
                       │ interprets `template`s
-      ┌───────────────┴────────────────┐
-basix-packages (core repo)   frankenbasix (overlay, shadows core)
-      └───────────────┬────────────────┘
+      ┌───────────────┴─────────────────────────┐
+basix-packages (core repo)   frankenbasix + frankenutb (overlays, shadow core)
+      └───────────────┬─────────────────────────┘
                 /etc/bpm/repos.conf priority → `bpm build/install`
 ```
 
 - **basix** = the distro; **bpm** = the package manager + build system;
   **basix-packages** = the distro's package repo (`core`). basix is **decentralized**:
   community extension repositories provide extended functionality alongside core.
-  **FrankenBasix** = one such extension repository, an overlay that extends/shadows
-  basix-packages and adds bpm extensions.
-- basix shares no package format with iglunix/frankensrc — the full three-way comparison
-  lives in the workspace's `REPOSITORY_COMPARISON.md`.
+  **FrankenBasix** = a maintained extension repository, an overlay that extends/shadows
+  basix-packages and adds bpm extensions; **FrankenUTB** = its untested sibling, a
+  systemd-free/libudev-garden overlay that nobody has built yet.
+- basix shares no package format with iglunix/frankensrc.
 
 ## Explore the docs
 
@@ -71,7 +73,7 @@ basix-packages (core repo)   frankenbasix (overlay, shadows core)
 	</Card>
 	<Card title="basix" icon="layers">
 		The distro: recipe-per-directory layout, declarative templates, and
-		reproducibility-first design in the
+		verification-first design in the
 		[basix reference](/reference/basix/).
 	</Card>
 	<Card title="bpm" icon="wrench">
@@ -90,5 +92,9 @@ basix-packages (core repo)   frankenbasix (overlay, shadows core)
 	<Card title="FrankenBasix" icon="sparkles">
 		What the spin adds — skeletons for every build style, bpm extensions, key packages —
 		and its conventions: [frankenbasix reference](/reference/frankenbasix/).
+	</Card>
+	<Card title="FrankenUTB" icon="flask">
+		The untested sibling: systemd replacements and libudev-garden package ports,
+		with pinning and provenance notes in the [frankenutb reference](/reference/frankenutb/).
 	</Card>
 </CardGrid>

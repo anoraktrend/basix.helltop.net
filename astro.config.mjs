@@ -27,6 +27,7 @@ export default defineConfig({
                       { label: 'Use Flags', slug: 'reference/use-flags' },
                       { label: 'Package State', slug: 'reference/package-state' },
                       { label: 'FrankenBasix', slug: 'reference/frankenbasix' },
+                      { label: 'FrankenUTB', slug: 'reference/frankenutb' },
                   ],
               },
           ],

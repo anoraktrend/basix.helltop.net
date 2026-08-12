@@ -35,12 +35,13 @@ Two packages that patch bpm itself:
 - `systemd` 261.2 (musl upstream, 48 USE flags, libucontext, forced `-Dlz4=false`,
   docbook-xsl for man/doc).
 - The full `llvm` monorepo merged into one package.
-- `linux-cachyos`, `rust` + `rust-bootstrap`.
+- `linux-cachyos`, `rust-bootstrap` (rust itself is now packaged upstream).
 - `gnutls`/`libressl` TLS stack bits.
 - PAM stack (`linux-pam`, `pam-config`, `sudo`).
 - Session bits (`seatd`, `greetd`, `libfido2`, `libseccomp`).
 - `fish`, `gettext-tiny`, `uutils-sed`, `ca-certificates`.
-- Assorted libraries (gmp, libgcrypt, nettle, tpm2-tss, lz4, libbpf, …).
+- Assorted overlay-only libraries (libgcrypt, tpm2-tss, lz4, libbpf, …); gmp, nettle,
+  and more are packaged upstream now.
 
 ## Conventions
 
@@ -56,7 +57,13 @@ Two packages that patch bpm itself:
   reliable; `ftp.gnu.org` intermittently serves HTML instead of tarballs — `file`-check
   downloads.
 - **Patches**: `diff -u` against a clean extract, dry-run with
-  `patch -p1 --fuzz=0 --dry-run` (GNU patch, strict hunk counts).
-- **Dependency nodes**: `libelf` (elfutils 0.195 minus tools), `cryptsetup`
-  (libcryptsetup), `gmp`, `scdoc`, `docbook-xsl`, `libudev-zero` fill needs basix
-  otherwise lacks.
+  `patch -p1 --fuzz=0 --dry-run` (busybox patch, strict hunk counts).
+- **Dependency nodes**: fill-in templates for things basix lacked, e.g. `libelf`
+  (elfutils 0.195 minus tools), `libudev-zero`, `scdoc`, `docbook-xsl`. Several of
+  these landed upstream (gmp, cryptsetup, libelf, libudev-zero, scdoc, docbook-xsl),
+  so today most remaining nodes are overlay-only packages like libbpf and tpm2-tss.
+
+## Related
+
+[FrankenUTB](/reference/frankenutb/) is the untested sibling overlay: Gardenhouse
+systemd replacements and libudev-garden package ports, none of it built or verified.

@@ -60,8 +60,9 @@ have network), `extract`, `patch`, `configure`, `build`, `check` (only when
 
 ## Patches
 
-Patches in `patches/` are applied with GNU `patch -p1` (strict hunk counts; a patch
-that applies under `git apply` may still be rejected) — `patch_args` overrides `-p1`.
+Patches in `patches/` are applied with `patch -p1` (busybox's `patch`, with strict
+hunk counts; a patch that applies under `git apply` may still be rejected) —
+`patch_args` overrides `-p1`.
 
 ## Accounts, conflicts, network
 

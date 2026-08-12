@@ -68,3 +68,4 @@ global defaults.
 - [Template format](/reference/templates/) — what a `template` file can contain
 - [Use flags](/reference/use-flags/) — declaring and resolving flags
 - [FrankenBasix reference](/reference/frankenbasix/) — what the spin adds and its conventions
+- [FrankenUTB reference](/reference/frankenutb/) — the untested sibling overlay
