@@ -16,7 +16,5 @@ Content lives in `src/content/docs/` (Markdown/MDX).
 
 ## Deploy
 
-Pushes to `main` deploy automatically via GitHub Actions
-(`.github/workflows/deploy.yml`), which builds the site and runs `wrangler deploy`.
-The workflow requires the `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` secrets
-on the repository.
+The site runs on Cloudflare Workers (`wrangler.jsonc`) at
+[basix.helltop.net](https://basix.helltop.net).
