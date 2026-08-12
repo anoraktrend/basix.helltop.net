@@ -1,7 +1,11 @@
+# scratch notes (not part of the docs site)
+BASIX_BPM.md
+
 # build output
 dist/
 # generated types
 .astro/
+.wrangler/
 
 # dependencies
 node_modules/

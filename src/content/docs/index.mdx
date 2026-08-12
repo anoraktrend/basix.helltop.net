@@ -1,40 +1,94 @@
 ---
-title: Welcome to Starlight
-description: Get started building your docs site with Starlight.
-template: splash # Remove or comment out this line to display the site sidebar on this page.
+title: Basix, bpm & FrankenBasix
+description: Documentation for the basix Linux distribution, its bpm package manager, and the FrankenBasix spin maintained in this workspace.
+template: splash
 hero:
-  tagline: Congrats on setting up a new Starlight project!
-  image:
-    file: ../../assets/houston.webp
+  tagline: Documentation for the basix Linux distribution, its `bpm` package manager, and the FrankenBasix spin.
   actions:
-    - text: Example Guide
-      link: /guides/example/
+    - text: Getting Started
+      link: /guides/getting-started/
       icon: right-arrow
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
-      icon: external
+    - text: bpm Reference
+      link: /reference/bpm-commands/
+      icon: open-book
       variant: minimal
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-## Next steps
+Three things share the name "basix" — the distro, its package manager, and a personal spin
+on its package repository:
+
+| Thing | What it is | Upstream |
+|---|---|---|
+| **basix** | A small musl-based Linux distro ("basix linux") | [kkrruumm/basix-packages](https://github.com/kkrruumm/basix-packages) (package repo) |
+| **bpm** | basix's package manager and build system | [kkrruumm/bpm](https://github.com/kkrruumm/bpm) |
+| **FrankenBasix** | A community extension repository for basix ("a bunch of templates to make using basix nicer for me and other users") | [anoraktrend/frankenbasix](https://github.com/anoraktrend/frankenbasix) |
+
+Local mirrors of the upstream repos live next to this workspace (`basix-packages/`,
+read-only reference, and `frankenbasix/`, active work).
+
+## Downloads
+
+Prebuilt basix rootfs images are published on the helltop CDN. The `latest` URLs
+always resolve to the newest build (via HTTP redirect); the dated paths are their
+stable archive targets.
+
+| Artifact | Latest | Dated (2026-08-12 build) |
+|---|---|---|
+| Rootfs tarball | [basix-rootfs-latest.tar.gz](https://cdn.helltop.net/basix-rootfs-latest.tar.gz) | [basix-rootfs-20260812.tar.gz](https://cdn.helltop.net/basix/2026-08-12/basix-rootfs-20260812.tar.gz) |
+| BLAKE3 checksum | [basix-rootfs-latest.tar.gz.b3](https://cdn.helltop.net/basix-rootfs-latest.tar.gz.b3) | [basix-rootfs-20260812.tar.gz.b3](https://cdn.helltop.net/basix/2026-08-12/basix-rootfs-20260812.tar.gz.b3) |
+| Installed packages | [basix-rootfs-latest.tar.gz.packages](https://cdn.helltop.net/basix-rootfs-latest.tar.gz.packages) | [basix-rootfs-20260812.tar.gz.packages](https://cdn.helltop.net/basix/2026-08-12/basix-rootfs-20260812.tar.gz.packages) |
+
+Verify the tarball with `b3sum -c basix-rootfs-latest.tar.gz.b3`; the `.packages` file
+lists the packages installed in the rootfs.
+
+## Relationship at a glance
+
+```
+                kkrruumm/bpm (the engine, MIT)
+                      │ interprets `template`s
+      ┌───────────────┴────────────────┐
+basix-packages (core repo)   frankenbasix (overlay, shadows core)
+      └───────────────┬────────────────┘
+                /etc/bpm/repos.conf priority → `bpm build/install`
+```
+
+- **basix** = the distro; **bpm** = the package manager + build system;
+  **basix-packages** = the distro's package repo (`core`). basix is **decentralized**:
+  community extension repositories provide extended functionality alongside core.
+  **FrankenBasix** = one such extension repository, an overlay that extends/shadows
+  basix-packages and adds bpm extensions.
+- basix shares no package format with iglunix/frankensrc — the full three-way comparison
+  lives in the workspace's `REPOSITORY_COMPARISON.md`.
+
+## Explore the docs
 
 <CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
+	<Card title="Getting Started" icon="rocket">
+		Set up `repos.conf`, pull the repositories, and build your first package with
+		[the getting-started guide](/guides/getting-started/).
 	</Card>
-	<Card title="Change page layout" icon="document">
-		Delete `template: splash` in `src/content/docs/index.mdx` to display a
-		sidebar on this page.
+	<Card title="basix" icon="layers">
+		The distro: recipe-per-directory layout, declarative templates, and
+		reproducibility-first design in the
+		[basix reference](/reference/basix/).
 	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
+	<Card title="bpm" icon="wrench">
+		Every command and configuration knob, from `build` to `checksum`:
+		[commands](/reference/bpm-commands/) and
+		[configuration](/reference/bpm-configuration/).
 	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
+	<Card title="Authoring templates" icon="file-code">
+		The `template` format, build styles, phases, and hooks:
+		[templates](/reference/templates/) and [use flags](/reference/use-flags/).
 	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
+	<Card title="Packaging internals" icon="package">
+		Checksums, archives, installed state, install helpers, and the build environment in
+		[package state](/reference/package-state/).
+	</Card>
+	<Card title="FrankenBasix" icon="sparkles">
+		What the spin adds — skeletons for every build style, bpm extensions, key packages —
+		and its conventions: [frankenbasix reference](/reference/frankenbasix/).
 	</Card>
 </CardGrid>
