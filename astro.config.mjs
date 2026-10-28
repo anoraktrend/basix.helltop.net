@@ -11,16 +11,12 @@ export default defineConfig({
           title: 'Basix · bpm · FrankenBasix',
           sidebar: [
               { label: 'Overview', link: '/' },
-              {
-                  label: 'Downloads',
-                  items: [
-                      { label: 'Downloads', slug: 'download' },
-                  ],
-              },
+              { label: 'Downloads', slug: 'download' },
               { label: 'Social', slug: 'social' },
               { label: 'Philosophy', slug: 'philosophy' },
-              { label: 'Wiki', slug: 'wiki',
+              { label: 'Wiki',
                   items: [
+                      { label: 'Wiki Home', slug: 'wiki' },
                       { label: 'Installation', slug: 'wiki/installation' },
                       { label: 'BPM', slug: 'wiki/bpm' },
                       { label: 'Service Configuration', slug: 'wiki/services' },
