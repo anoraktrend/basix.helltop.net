@@ -1,3 +1,7 @@
+---
+title: Basix Wiki
+---
+
 title: Basix Wiki
 
 # The Basix Package Manager

@@ -1,3 +1,7 @@
+---
+title: Basix Wiki
+---
+
 title: Basix Wiki
 
 By default, Basix is already quite hardened compared to the state of most other Linux distributions. This does not mean Basix is a super l33t hax0r OS.

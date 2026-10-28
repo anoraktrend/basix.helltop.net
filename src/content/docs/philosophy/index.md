@@ -1,3 +1,7 @@
+---
+title: Basix Philosophy
+---
+
 title: Basix Philosophy
 
 # What is this page?

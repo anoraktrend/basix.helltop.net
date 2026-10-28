@@ -1,3 +1,7 @@
+---
+title: Basix Linux
+---
+
 title: Basix Linux
 
 # About

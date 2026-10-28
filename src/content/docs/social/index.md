@@ -1,3 +1,7 @@
+---
+title: Basix Social Groups
+---
+
 title: Basix Social Groups
 
 # IRC
