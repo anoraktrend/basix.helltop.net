@@ -19,8 +19,7 @@ export default defineConfig({
               },
               { label: 'Social', slug: 'social' },
               { label: 'Philosophy', slug: 'philosophy' },
-              {
-                  label: 'Wiki', slug: 'wiki'
+              { label: 'Wiki', slug: 'wiki',
                   items: [
                       { label: 'Installation', slug: 'wiki/installation' },
                       { label: 'BPM', slug: 'wiki/bpm' },
