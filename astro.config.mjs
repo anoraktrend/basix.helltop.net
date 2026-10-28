@@ -19,7 +19,7 @@ export default defineConfig({
                       { label: 'Wiki Home', slug: 'wiki' },
                       { label: 'Installation', slug: 'wiki/installation' },
                       { label: 'BPM', slug: 'wiki/bpm' },
-                      { label: 'BPM Usage', slug: 'wiki/bpm/usage'}
+                      { label: 'BPM Usage', slug: 'wiki/bpm/usage'},
                       { label: 'Service Configuration', slug: 'wiki/services' },
                       { label: 'Security', slug: 'wiki/security' },
                       { label: 'Time', slug: 'wiki/time' },
