@@ -1,6 +1,6 @@
 title: Basix Download
 
-This is just served off of this box directly for the time being with no CDN or torrent. Forgive the probable slowness.
+This is just served off of the main site's box directly for the time being with no CDN or torrent. Forgive the probable slowness.
 
 At some point, there will be a torrent and that will become the "CDN" as opposed to using cloudflare or otherwise.
 
