@@ -12,22 +12,23 @@ export default defineConfig({
           sidebar: [
               { label: 'Overview', link: '/' },
               {
-                  label: 'Guides',
+                  label: 'Downloads',
                   items: [
-                      { label: 'Getting Started', slug: 'guides/getting-started' },
+                      { label: 'Downloads', slug: 'download' },
                   ],
               },
+              { label: 'Social', slug: 'social' },
+              { label: 'Philosophy', slug: 'philosophy' },
               {
-                  label: 'Reference',
+                  label: 'Wiki', slug: 'wiki'
                   items: [
-                      { label: 'basix', slug: 'reference/basix' },
-                      { label: 'bpm Commands', slug: 'reference/bpm-commands' },
-                      { label: 'bpm Configuration', slug: 'reference/bpm-configuration' },
-                      { label: 'Templates', slug: 'reference/templates' },
-                      { label: 'Use Flags', slug: 'reference/use-flags' },
-                      { label: 'Package State', slug: 'reference/package-state' },
-                      { label: 'FrankenBasix', slug: 'reference/frankenbasix' },
-                      { label: 'FrankenUTB', slug: 'reference/frankenutb' },
+                      { label: 'Installation', slug: 'wiki/installation' },
+                      { label: 'BPM', slug: 'wiki/bpm' },
+                      { label: 'Service Configuration', slug: 'wiki/services' },
+                      { label: 'Security', slug: 'wiki/security' },
+                      { label: 'Time', slug: 'wiki/time' },
+                      { label: 'Kernel Modules', slug: 'wiki/kmodules' },
+                      { label: 'Virtualization', slug: 'wiki/virtualization' },
                   ],
               },
           ],
