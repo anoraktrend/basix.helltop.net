@@ -8,7 +8,7 @@ import cloudflare from '@astrojs/cloudflare';
 export default defineConfig({
   integrations: [
       starlight({
-          title: 'Basix · bpm · FrankenBasix',
+          title: "Lucy's Unofficial Basix mirror",
           sidebar: [
               { label: 'Overview', link: '/' },
               { label: 'Downloads', slug: 'download' },
